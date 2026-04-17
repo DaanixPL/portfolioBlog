@@ -12,28 +12,31 @@ function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b border-transparent bg-white/90 backdrop-blur transition-shadow ${
-        hasShadow ? 'shadow-sm' : ''
+      className={`sticky top-0 z-50 border-b border-white/10 bg-navy/95 backdrop-blur transition-shadow ${
+        hasShadow ? 'shadow-lg shadow-black/30' : ''
       }`}
     >
       <nav className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <a href="#hero" className="text-xl font-semibold tracking-tight text-slate-900">
+        <a href="#hero" className="text-xl font-semibold tracking-tight text-white">
           TekstStudio
         </a>
-        <ul className="flex items-center gap-5 text-sm font-medium text-slate-700 sm:gap-8">
+        <ul className="flex items-center gap-5 text-sm font-medium text-slate-300 sm:gap-8">
           <li>
-            <a href="#oferta" className="transition hover:text-slate-900">
+            <a href="#oferta" className="transition hover:text-gold">
               Co oferujemy
             </a>
           </li>
           <li>
-            <a href="#portfolio" className="transition hover:text-slate-900">
+            <a href="#portfolio" className="transition hover:text-gold">
               Portfolio
             </a>
           </li>
           <li>
-            <a href="#kontakt" className="transition hover:text-slate-900">
-              Kontakt
+            <a
+              href="mailto:kontakt@tekststudio.pl"
+              className="inline-flex items-center justify-center rounded-md border border-gold px-4 py-2 text-gold transition hover:bg-gold hover:text-navy"
+            >
+              Napisz do mnie
             </a>
           </li>
         </ul>

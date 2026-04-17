@@ -2,7 +2,7 @@ function PortfolioCard({ item, isExpanded, onToggle }) {
   return (
     <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-md">
       <button className="w-full text-left" onClick={onToggle} type="button">
-        <span className="inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
+        <span className="inline-flex rounded-full bg-gold/10 px-3 py-1 text-xs font-semibold text-gold">
           {item.tag}
         </span>
         <h3 className="mt-4 text-xl font-semibold tracking-tight text-slate-900">

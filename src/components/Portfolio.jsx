@@ -82,6 +82,9 @@ function Portfolio() {
   return (
     <section id="portfolio" className="scroll-mt-24 border-b border-slate-200 bg-slate-50">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-gold">
+          Realizacje
+        </p>
         <h2 className="text-3xl font-semibold tracking-tight text-slate-900">
           Portfolio
         </h2>
