@@ -4,13 +4,13 @@ function renderInlineFormatting(text) {
 
     if (boldMatch) {
       return (
-        <strong key={`${part}-${index}`} className="font-semibold text-slate-800">
+        <strong key={`part-${index}`} className="font-semibold text-slate-800">
           {boldMatch[1]}
         </strong>
       )
     }
 
-    return <span key={`${part}-${index}`}>{part}</span>
+    return <span key={`part-${index}`}>{part}</span>
   })
 }
 
@@ -84,15 +84,16 @@ function FormattedPortfolioText({ text }) {
             block.type === 'ordered'
               ? 'list-decimal space-y-1 pl-5'
               : 'list-disc space-y-1 pl-5'
+          const ListTag = block.type === 'ordered' ? 'ol' : 'ul'
 
           return (
-            <ul key={`list-${index}`} className={listClassName}>
+            <ListTag key={`list-${index}`} className={listClassName}>
               {block.items.map((listItem, itemIndex) => (
-                <li key={`${listItem}-${itemIndex}`}>
+                <li key={`item-${itemIndex}`}>
                   {renderInlineFormatting(listItem)}
                 </li>
               ))}
-            </ul>
+            </ListTag>
           )
         }
 
