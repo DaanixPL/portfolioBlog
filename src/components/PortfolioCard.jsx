@@ -1,6 +1,17 @@
+function createStableKey(value, index) {
+  let hash = 0
+
+  for (let i = 0; i < value.length; i += 1) {
+    hash = (hash << 5) - hash + value.charCodeAt(i)
+    hash |= 0
+  }
+
+  return `${index}-${Math.abs(hash)}`
+}
+
 function renderInlineFormatting(text) {
   return text.split(/(\*\*[\s\S]*?\*\*)/g).filter(Boolean).map((part, index) => {
-    const key = `${index}-${part.length}-${part.charCodeAt(0) || 0}`
+    const key = createStableKey(part, index)
     const boldMatch = part.match(/^\*\*([\s\S]*)\*\*$/)
 
     if (boldMatch) {
@@ -37,8 +48,6 @@ function FormattedPortfolioText({ text }) {
 
     const orderedMatch = trimmedLine.match(/^\d+\.\s+(.*)$/)
     const bulletMatch = trimmedLine.match(/^\*\s+(.*)$/)
-    const headingMatch = trimmedLine.match(/^\*\*(.*)\*\*$/)
-
     if (orderedMatch) {
       if (!currentList || currentList.type !== 'ordered') {
         flushList()
@@ -62,8 +71,8 @@ function FormattedPortfolioText({ text }) {
     flushList()
 
     blocks.push({
-      type: headingMatch ? 'heading' : 'paragraph',
-      content: headingMatch ? headingMatch[1] : trimmedLine,
+      type: 'paragraph',
+      content: trimmedLine,
     })
   })
 
@@ -72,14 +81,6 @@ function FormattedPortfolioText({ text }) {
   return (
     <div className="mt-3 space-y-3 text-sm leading-relaxed text-slate-600">
       {blocks.map((block, index) => {
-        if (block.type === 'heading') {
-          return (
-            <h4 key={`heading-${index}`} className="text-base font-semibold text-slate-900">
-              {renderInlineFormatting(block.content)}
-            </h4>
-          )
-        }
-
         if (block.type === 'ordered' || block.type === 'unordered') {
           const listClassName =
             block.type === 'ordered'
@@ -90,7 +91,7 @@ function FormattedPortfolioText({ text }) {
           return (
             <ListTag key={`list-${index}`} className={listClassName}>
               {block.items.map((listItem, itemIndex) => (
-                <li key={`${itemIndex}-${listItem.length}-${listItem.charCodeAt(0) || 0}`}>
+                <li key={createStableKey(listItem, itemIndex)}>
                   {renderInlineFormatting(listItem)}
                 </li>
               ))}
