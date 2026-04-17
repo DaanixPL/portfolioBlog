@@ -10,7 +10,7 @@ function Hero() {
           TekstStudio
           </p>
           <h1 className="max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
-            Landing page, który wygląda profesjonalnie i pracuje na wynik
+            Profesjonalny landing page, który działa na wynik
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-200">
             Tworzę treści, które pomagają zdobywać ruch z wyszukiwarki i
