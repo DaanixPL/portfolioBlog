@@ -4,7 +4,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        accent: '#0f172a',
+        gold: '#c9a84c',
+        navy: '#0a0f1e',
       },
     },
   },

@@ -7,7 +7,7 @@ import Services from './components/Services'
 
 function App() {
   return (
-    <div className="bg-slate-50 text-slate-800">
+    <div className="text-slate-800">
       <Navbar />
       <main>
         <Hero />
