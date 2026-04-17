@@ -1,16 +1,17 @@
 function renderInlineFormatting(text) {
-  return text.split(/(\*\*.*?\*\*)/g).filter(Boolean).map((part, index) => {
-    const boldMatch = part.match(/^\*\*(.*)\*\*$/)
+  return text.split(/(\*\*[\s\S]*?\*\*)/g).filter(Boolean).map((part, index) => {
+    const key = `${index}-${part.length}-${part.charCodeAt(0) || 0}`
+    const boldMatch = part.match(/^\*\*([\s\S]*)\*\*$/)
 
     if (boldMatch) {
       return (
-        <strong key={`part-${index}`} className="font-semibold text-slate-800">
+        <strong key={key} className="font-semibold text-slate-800">
           {boldMatch[1]}
         </strong>
       )
     }
 
-    return <span key={`part-${index}`}>{part}</span>
+    return <span key={key}>{part}</span>
   })
 }
 
@@ -89,7 +90,7 @@ function FormattedPortfolioText({ text }) {
           return (
             <ListTag key={`list-${index}`} className={listClassName}>
               {block.items.map((listItem, itemIndex) => (
-                <li key={`item-${itemIndex}`}>
+                <li key={`${itemIndex}-${listItem.length}-${listItem.charCodeAt(0) || 0}`}>
                   {renderInlineFormatting(listItem)}
                 </li>
               ))}
