@@ -4,74 +4,62 @@ import PortfolioCard from './PortfolioCard'
 const portfolioItems = [
   {
     id: 1,
-    title: 'Jak zwiększyć ruch na stronie lokalnej firmy',
-    tag: 'SEO',
+    title: 'Ile kosztuje strona internetowa w 2026 roku? Aktualne ceny i czynniki wpływające na koszty',
+    tag: 'Strona',
     excerpt:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent efficitur magna et lorem hendrerit, sed luctus justo blandit. Integer id libero in nunc hendrerit convallis.',
+      'Strona internetowa jest obecnie podstawowym narzędziem obecności firmy w internecie. Umożliwia prezentację oferty, budowanie wiarygodności oraz pozyskiwanie klientów.',
     content: [
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida justo et mi commodo, vel congue metus posuere. Suspendisse potenti. Donec dictum, turpis sed accumsan feugiat, risus turpis laoreet risus, nec feugiat lectus est at sem.',
-      'Mauris ultrices sem et sem dignissim, in blandit velit consequat. Morbi malesuada, est a ultrices faucibus, tortor libero vulputate lorem, vitae malesuada odio metus eget nunc. Nullam faucibus consequat lorem, eget fermentum est molestie non.',
-      'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque eu luctus nibh. Cras ut dui vel sapien faucibus varius et in mi.',
+      'Koszt wykonania strony internetowej w 2026 roku może się znacząco różnić w zależności od zakresu projektu, technologii oraz dodatkowych funkcji. Cena zależy głównie od jej rodzaju: strony portfolio kosztują zazwyczaj od 1000 do 3000 zł, strony firmowe od 3000 do 7000 zł, a bardziej rozbudowane serwisy to wydatek rzędu 7000–15000 zł i więcej.',
+      'Główne czynniki wpływające na ostateczną wycenę to zakres projektu (liczba podstron), stopień skomplikowania projektu graficznego (szablon vs indywidualny design) oraz dodatkowe funkcjonalności, takie jak systemy rezerwacji czy integracje zewnętrzne. Nie bez znaczenia pozostaje również optymalizacja SEO, która wpływa na późniejszą widoczność strony w Google.',
+      'Warto traktować własną witrynę jako inwestycję, a nie koszt. Dobrze zaprojektowana strona buduje wiarygodność, pozwala prezentować ofertę w uporządkowany sposób i stanowi podstawowe źródło pozyskiwania zapytań ofertowych w niemal każdej branży. Wybór odpowiedniego rozwiązania powinien być zawsze dopasowany do celów biznesowych firmy.',
     ],
   },
   {
     id: 2,
-    title: 'Blog firmowy w branży B2B: od czego zacząć',
-    tag: 'Strategia',
+    title: 'Jak zwiększyć sprzedaż w sklepie internetowym? 5 sprawdzonych metod',
+    tag: 'E-commerce',
     excerpt:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In hac habitasse platea dictumst. Curabitur finibus viverra justo, sed volutpat ligula malesuada ac.',
+      'Sprzedaż w sklepie internetowym zależy od wielu czynników, nie tylko od ruchu na stronie czy działań reklamowych. Poznaj metody na realne zwiększenie konwersji.',
     content: [
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et tortor nec risus condimentum tempus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.',
-      'Etiam suscipit, mauris at tincidunt gravida, purus sapien aliquet turpis, vel tristique elit nunc sit amet nibh. Donec eget feugiat enim. Donec pellentesque elementum ipsum, nec dignissim nibh lacinia non.',
-      'Aliquam erat volutpat. Proin feugiat nisi et metus vestibulum, eu fermentum lacus luctus. Nunc id sodales ligula. Phasellus eget risus at massa condimentum tempor.',
+      'Kluczem do sukcesu w e-commerce jest optymalizacja opisów produktów oraz wysoka jakość zdjęć. Opisy powinny podkreślać korzyści i odpowiadać na pytania klientów, natomiast profesjonalne fotografie budują niezbędne zaufanie. Równie istotna jest widoczność w Google – dbanie o SEO na poziomie kategorii i produktów to fundament stałego dopływu klientów.',
+      'Kolejnym aspektem jest maksymalne uproszczenie procesu zakupowego. Zbyt wiele kroków w koszyku to najczęstsza przyczyna porzuceń zamówień. Warto oferować popularne metody płatności i zadbać o przejrzystość formularzy. Dodatkowo, prowadzenie bloga firmowego z treściami edukacyjnymi pozwala przyciągnąć klienta na wczesnym etapie ścieżki zakupowej.',
+      'Podsumowując, zwiększenie sprzedaży to proces wielotorowy. Połączenie wartościowej treści, optymalizacji technicznej SEO oraz sprawnego UX (User Experience) w procesie zakupowym pozwala na osiągnięcie najlepszych wyników i stały wzrost przychodów sklepu.',
     ],
   },
   {
     id: 3,
-    title: 'Jak pisać treści eksperckie bez nadęcia',
-    tag: 'Copywriting',
+    title: 'Dlaczego Twoja strona nie pojawia się w Google? Najczęstsze błędy SEO',
+    tag: 'SEO',
     excerpt:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non urna dapibus, tincidunt urna vel, faucibus magna. Nulla facilisi.',
+      'Brak widoczności strony w Google to częsty problem firm. Nawet ładna strona nie zarobi, jeśli nie została zoptymalizowana pod kątem wyszukiwarek.',
     content: [
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut elit sed massa fermentum consectetur. Morbi pharetra, velit a bibendum posuere, libero nisl fringilla augue, non eleifend mi sem a odio.',
-      'Donec sit amet cursus mauris. Integer eget arcu in risus porta commodo. Sed pellentesque efficitur arcu, vel feugiat lorem porta vel. Fusce iaculis sapien at bibendum laoreet.',
-      'Suspendisse nec pretium odio. Nulla vel dui ac lorem posuere pulvinar. Proin dictum urna nec neque tempor finibus. Vivamus vehicula iaculis tristique.',
+      'Najczęstszym błędem jest brak dopasowania treści do słów kluczowych oraz nieprawidłowa struktura nagłówków. Google musi rozumieć, o czym jest Twoja strona, dlatego logiczny podział na H1, H2 i H3 oraz regularne publikowanie treści na blogu są niezbędne do budowania pozycji w rankingu.',
+      'Inne zaniedbania to brak linkowania wewnętrznego, które pomaga robotom indeksować stronę, oraz rzadkie aktualizacje. Strony, które "stoją w miejscu", z czasem tracą zaufanie algorytmów. Regularne odświeżanie treści i dbanie o techniczną stronę SEO to jedyny sposób na utrzymanie stabilnego ruchu organicznego.',
+      'Aby poprawić sytuację, należy wdrożyć spójną strategię SEO: zoptymalizować istniejące podstrony, zacząć regularnie publikować wartościowe poradniki i zadbać o powiązania między artykułami. Pamiętaj, że widoczność w Google to proces, który wymaga cierpliwości i systematyczności.',
     ],
   },
   {
     id: 4,
-    title: 'Checklista publikacji wpisu pod Google',
-    tag: 'SEO',
+    title: 'Jak napisać skuteczny opis usługi, który przyciąga klientów?',
+    tag: 'Copywriting',
     excerpt:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae magna non massa volutpat consequat. Aenean sed volutpat arcu.',
+      'Opis usługi ma bezpośredni wpływ na to, czy klient wyśle zapytanie. Dowiedz się, jak pisać teksty, które realnie sprzedają i budują zaufanie.',
     content: [
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium pharetra turpis, vel feugiat risus lacinia et. Sed in ex quis sem lacinia scelerisque ac in sem.',
-      'Vivamus efficitur eu augue a porta. Aenean at justo sem. Etiam at faucibus metus, quis posuere neque. Duis ut nibh non mauris condimentum lacinia.',
-      'Nam ac ante consequat, aliquet libero vitae, rutrum tellus. Curabitur sodales feugiat metus, ac molestie dui gravida a. Morbi posuere congue nibh.',
+      'Skuteczny opis usługi musi jasno określać, co oferujesz i jaki problem klienta rozwiązujesz. Unikanie ogólników na rzecz konkretów pozwala użytkownikowi szybko ocenić, czy trafił w odpowiednie miejsce. Kluczowe jest skupienie się na korzyściach – klient nie kupuje Twoich działań, ale efekt, który dzięki nim osiągnie.',
+      'Tekst powinien być napisany prostym, zrozumiałym językiem, unikając nadmiaru technicznego żargonu. Warto też zawczasu odpowiedzieć na najczęstsze pytania: o cenę, czas realizacji oraz model współpracy. Przejrzystość w tych kwestiach buduje profesjonalny wizerunek i skraca drogę do finalizacji transakcji.',
+      'Każdy opis musi kończyć się wyraźnym wezwaniem do działania (Call to Action). Zaproszenie do kontaktu, wypełnienia formularza czy bezpłatnej konsultacji to niezbędny element, który przekuwa czytelnika w potencjalnego leada. Dobrze skonstruowana oferta to Twoja najlepsza karta przetargowa.',
     ],
   },
   {
     id: 5,
-    title: 'Co daje regularne publikowanie na blogu',
-    tag: 'Marketing treści',
+    title: 'Dlaczego Twoja strona nie sprzedaje? Najczęstsze błędy, które tracą klientów',
+    tag: 'Konwersja',
     excerpt:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vehicula varius arcu, ac faucibus eros feugiat et. Quisque porta nisl eget est egestas feugiat.',
+      'Wiele firm posiada profesjonalnie wyglądającą stronę, która nie generuje zapytań. Dowiedz się, jakie błędy w strukturze i treści sprawiają, że tracisz potencjalnych klientów.',
     content: [
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac diam et augue pretium ornare. Curabitur efficitur consequat dolor et aliquet.',
-      'Ut sit amet orci condimentum, vulputate dui eu, dictum lorem. Integer eleifend sapien ut elementum placerat. Vestibulum volutpat tortor et sem pretium posuere.',
-      'Fusce in pellentesque lorem. Nunc aliquet dignissim ultrices. Curabitur gravida convallis eros, in mattis est posuere vel. Nam venenatis sem sed justo hendrerit vulputate.',
-    ],
-  },
-  {
-    id: 6,
-    title: 'Artykuł poradnikowy, który prowadzi do zapytania',
-    tag: 'Lead generation',
-    excerpt:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu neque id nisl luctus vulputate. Sed ac aliquet turpis, non luctus augue.',
-    content: [
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque gravida ante in massa feugiat, vitae condimentum lorem congue. Cras volutpat fermentum purus sed tincidunt.',
-      'Praesent faucibus tellus nisl, at bibendum mi pharetra in. Aenean facilisis leo ligula, at imperdiet tortor volutpat a. Cras id purus luctus, consequat massa vitae, fringilla magna.',
-      'Ut eget velit ullamcorper, efficitur nibh non, placerat massa. Vestibulum eget urna nunc. Donec sit amet justo et massa sollicitudin varius.',
+      'Głównym powodem braku sprzedaży często nie jest mały ruch, ale brak jasnego przekazu na stronie. Użytkownik w kilka sekund musi zrozumieć, co oferujesz i jaką korzyść odniesie. Strony przeładowane ogólnymi hasłami typu „najwyższa jakość” bez konkretnych odpowiedzi na potrzeby klienta sprawiają, że odwiedzający szybko rezygnują z dalszego przeglądania.',
+      'Kluczowymi elementami, które budują sprzedaż, są widoczne wezwania do działania (CTA) oraz elementy budujące zaufanie, takie jak opinie klientów czy konkretne realizacje. Jeśli ścieżka kontaktu jest zbyt skomplikowana lub treść skupia się wyłącznie na firmie zamiast na problemach klienta, współczynnik konwersji drastycznie spada.',
+      'Podsumowując, skuteczna strona musi prowadzić użytkownika za rękę – od jasnej informacji o usłudze, przez przedstawienie korzyści i dowodów słuszności, aż po prosty formularz kontaktu. Optymalizacja tych elementów pozwala znacząco zwiększyć liczbę zapytań ofertowych bez konieczności zwiększania wydatków na reklamę.',
     ],
   },
 ]
