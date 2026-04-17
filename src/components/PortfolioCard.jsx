@@ -1,3 +1,107 @@
+function renderInlineFormatting(text) {
+  return text.split(/(\*\*.*?\*\*)/g).filter(Boolean).map((part, index) => {
+    const boldMatch = part.match(/^\*\*(.*)\*\*$/)
+
+    if (boldMatch) {
+      return (
+        <strong key={`${part}-${index}`} className="font-semibold text-slate-800">
+          {boldMatch[1]}
+        </strong>
+      )
+    }
+
+    return <span key={`${part}-${index}`}>{part}</span>
+  })
+}
+
+function FormattedPortfolioText({ text }) {
+  const lines = text.split('\n')
+  const blocks = []
+  let currentList = null
+
+  const flushList = () => {
+    if (currentList) {
+      blocks.push(currentList)
+      currentList = null
+    }
+  }
+
+  lines.forEach((line) => {
+    const trimmedLine = line.trim()
+
+    if (!trimmedLine) {
+      flushList()
+      return
+    }
+
+    const orderedMatch = trimmedLine.match(/^\d+\.\s+(.*)$/)
+    const bulletMatch = trimmedLine.match(/^\*\s+(.*)$/)
+    const headingMatch = trimmedLine.match(/^\*\*(.*)\*\*$/)
+
+    if (orderedMatch) {
+      if (!currentList || currentList.type !== 'ordered') {
+        flushList()
+        currentList = { type: 'ordered', items: [] }
+      }
+
+      currentList.items.push(orderedMatch[1])
+      return
+    }
+
+    if (bulletMatch) {
+      if (!currentList || currentList.type !== 'unordered') {
+        flushList()
+        currentList = { type: 'unordered', items: [] }
+      }
+
+      currentList.items.push(bulletMatch[1])
+      return
+    }
+
+    flushList()
+
+    blocks.push({
+      type: headingMatch ? 'heading' : 'paragraph',
+      content: headingMatch ? headingMatch[1] : trimmedLine,
+    })
+  })
+
+  flushList()
+
+  return (
+    <div className="mt-3 space-y-3 text-sm leading-relaxed text-slate-600">
+      {blocks.map((block, index) => {
+        if (block.type === 'heading') {
+          return (
+            <h4 key={`heading-${index}`} className="text-base font-semibold text-slate-900">
+              {renderInlineFormatting(block.content)}
+            </h4>
+          )
+        }
+
+        if (block.type === 'ordered' || block.type === 'unordered') {
+          const listClassName =
+            block.type === 'ordered'
+              ? 'list-decimal space-y-1 pl-5'
+              : 'list-disc space-y-1 pl-5'
+
+          return (
+            <ul key={`list-${index}`} className={listClassName}>
+              {block.items.map((listItem, itemIndex) => (
+                <li key={`${listItem}-${itemIndex}`}>
+                  {renderInlineFormatting(listItem)}
+                </li>
+              ))}
+            </ul>
+          )
+        }
+
+        return <p key={`paragraph-${index}`}>{renderInlineFormatting(block.content)}</p>
+      })}
+    </div>
+  )
+}
+
 function PortfolioCard({ item, isExpanded, onToggle }) {
   return (
     <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-md">
@@ -20,13 +124,8 @@ function PortfolioCard({ item, isExpanded, onToggle }) {
         }`}
       >
         <div className="overflow-hidden">
-          {item.content.map((paragraph) => (
-            <p
-              key={paragraph}
-              className="mt-3 text-sm leading-relaxed text-slate-600"
-            >
-              {paragraph}
-            </p>
+          {item.content.map((paragraph, index) => (
+            <FormattedPortfolioText key={`${item.id}-${index}`} text={paragraph} />
           ))}
         </div>
       </div>
