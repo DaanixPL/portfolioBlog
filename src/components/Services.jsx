@@ -1,14 +1,13 @@
 import { CheckCircle, PencilLine } from 'lucide-react'
 
-function Services() {
-  const benefits = [
-    'Lepsza widoczność Twojej strony w Google.',
-    'Większe zaufanie do marki dzięki eksperckim treściom.',
-    'Więcej wartościowego ruchu i potencjalnych klientów.',
-    'Spójny, profesjonalny wizerunek komunikacji.',
-  ]
+const benefits = [
+  'Lepsza widoczność Twojej strony w Google.',
+  'Większe zaufanie do marki dzięki eksperckim treściom.',
+  'Więcej wartościowego ruchu i potencjalnych klientów.',
+  'Spójny, profesjonalny wizerunek komunikacji.',
+]
 
-  return (
+function Services() {  return (
     <section id="oferta" className="scroll-mt-24 border-b border-slate-100 bg-white">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
         <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-gold">

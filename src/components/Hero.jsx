@@ -4,6 +4,7 @@ function Hero() {
       id="hero"
       className="scroll-mt-24 bg-gradient-to-br from-navy via-[#0d1b30] to-navy"
     >
+      {/* min-h uses 65px = sticky navbar height */}
       <div className="mx-auto flex min-h-[calc(100vh-65px)] max-w-6xl items-center px-4 py-16 sm:px-6 lg:px-8">
         <div className="w-full">
           <p className="mb-5 text-xs font-semibold uppercase tracking-[0.18em] text-gold">
