@@ -22,8 +22,8 @@ function Navbar() {
         </a>
         <ul className="flex items-center gap-5 text-sm font-medium text-slate-700 sm:gap-8">
           <li>
-            <a href="#uslugi" className="transition hover:text-slate-900">
-              Usługi
+            <a href="#oferta" className="transition hover:text-slate-900">
+              Co oferujemy
             </a>
           </li>
           <li>
