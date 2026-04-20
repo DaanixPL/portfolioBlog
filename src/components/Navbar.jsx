@@ -12,7 +12,7 @@ function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b border-white/8 bg-navy/96 backdrop-blur-md transition-shadow ${
+      className={`sticky top-0 z-50 border-b border-white/8 bg-navy backdrop-blur-md transition-shadow ${
         hasShadow ? 'shadow-xl shadow-black/40' : ''
       }`}
     >
