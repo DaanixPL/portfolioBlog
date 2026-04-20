@@ -4,8 +4,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        gold: '#c9a84c',
-        navy: '#0a0f1e',
+        gold: '#7c6af7',
+        navy: '#0c1221',
+      },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
       },
     },
   },
