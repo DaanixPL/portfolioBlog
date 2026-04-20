@@ -58,9 +58,8 @@ function Hero() {
           </span>
 
           <h1 className="max-w-3xl text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-[3.75rem]">
-            Treści, które zamieniają
-            <br />
-            <span className="text-gold">czytelników w klientów</span>
+            Treści, które zamieniają{' '}
+            <span className="block text-gold">czytelników w klientów</span>
           </h1>
           <p className="mt-7 max-w-xl text-lg leading-relaxed text-slate-300/90">
             Piszę eksperckie artykuły blogowe, które windują Twoją stronę

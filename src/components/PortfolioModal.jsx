@@ -60,9 +60,21 @@ function ArticleContent({ content }) {
       const orderedMatch = trimmed.match(/^\d+\.\s+(.+)$/)
       const bulletMatch = trimmed.match(/^\*\s+(.+)$/)
 
-      if (h1Match) { flushList(); blocks.push({ type: 'h1', text: h1Match[1] }); return }
-      if (h2Match) { flushList(); blocks.push({ type: 'h2', text: h2Match[1] }); return }
-      if (h3Match) { flushList(); blocks.push({ type: 'h3', text: h3Match[1] }); return }
+      if (h1Match) {
+        flushList()
+        blocks.push({ type: 'h1', text: h1Match[1] })
+        return
+      }
+      if (h2Match) {
+        flushList()
+        blocks.push({ type: 'h2', text: h2Match[1] })
+        return
+      }
+      if (h3Match) {
+        flushList()
+        blocks.push({ type: 'h3', text: h3Match[1] })
+        return
+      }
 
       if (orderedMatch) {
         if (!currentList || currentList.type !== 'ol') {
@@ -166,14 +178,19 @@ function PortfolioModal({ item, onClose }) {
       />
 
       {/* Modal card */}
-      <div className="relative flex max-h-[92vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-black/8">
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+        className="relative flex max-h-[92vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-black/8"
+      >
         {/* Header */}
         <div className="flex shrink-0 items-start justify-between gap-4 border-b border-slate-100 px-7 py-6 sm:px-8">
           <div className="min-w-0">
             <span className="inline-flex rounded-full bg-gold/10 px-3 py-1 text-xs font-semibold text-gold">
               {item.tag}
             </span>
-            <h2 className="mt-3 text-xl font-bold leading-snug tracking-tight text-slate-900 sm:text-2xl">
+            <h2 id="modal-title" className="mt-3 text-xl font-bold leading-snug tracking-tight text-slate-900 sm:text-2xl">
               {item.title}
             </h2>
           </div>
