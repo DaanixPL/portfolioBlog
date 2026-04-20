@@ -1,4 +1,31 @@
+import { useState } from 'react'
+
+// Replace YOUR_FORM_ID with the ID from your Formspree dashboard (formspree.io)
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID'
+
 function Contact() {
+  const [status, setStatus] = useState('idle') // 'idle' | 'submitting' | 'success' | 'error'
+
+  async function handleSubmit(e) {
+    e.preventDefault()
+    setStatus('submitting')
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        body: new FormData(e.target),
+        headers: { Accept: 'application/json' },
+      })
+      if (res.ok) {
+        setStatus('success')
+        e.target.reset()
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
+  }
+
   return (
     <section id="kontakt" className="scroll-mt-24 bg-navy">
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
@@ -9,55 +36,63 @@ function Contact() {
           Porozmawiajmy o projekcie
         </h2>
         <p className="mt-4 max-w-xl text-base leading-relaxed text-slate-400">
-          Napisz bezpośrednio na{' '}
-          <a
-            href="mailto:kontakt@tekststudio.pl"
-            className="font-semibold text-gold underline-offset-4 hover:underline"
-          >
-            kontakt@tekststudio.pl
-          </a>{' '}
-          lub skorzystaj z formularza poniżej.
+          Wypełnij formularz, a odezwę się do Ciebie tak szybko, jak to możliwe.
         </p>
-        <form
-          className="mt-10 grid max-w-2xl gap-5"
-          action="mailto:kontakt@tekststudio.pl"
-          method="post"
-          encType="text/plain"
-        >
-          <label className="grid gap-2">
-            <span className="text-sm font-medium text-slate-300">Imię</span>
-            <input
-              required
-              type="text"
-              name="imie"
-              className="rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-gold focus:ring-1 focus:ring-gold/30"
-            />
-          </label>
-          <label className="grid gap-2">
-            <span className="text-sm font-medium text-slate-300">Email</span>
-            <input
-              required
-              type="email"
-              name="email"
-              className="rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-gold focus:ring-1 focus:ring-gold/30"
-            />
-          </label>
-          <label className="grid gap-2">
-            <span className="text-sm font-medium text-slate-300">Wiadomość</span>
-            <textarea
-              required
-              name="wiadomosc"
-              rows="5"
-              className="rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-gold focus:ring-1 focus:ring-gold/30"
-            />
-          </label>
-          <button
-            type="submit"
-            className="inline-flex w-fit items-center justify-center rounded-lg bg-gold px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-gold/25 transition hover:brightness-110"
-          >
-            Wyślij wiadomość
-          </button>
-        </form>
+
+        {status === 'success' ? (
+          <div className="mt-10 rounded-xl border border-gold/30 bg-gold/10 px-6 py-8 text-center">
+            <p className="text-lg font-semibold text-white">Dziękuję za wiadomość! 🎉</p>
+            <p className="mt-2 text-sm text-slate-400">Odezwę się najszybciej jak to możliwe.</p>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="mt-10 grid max-w-2xl gap-5">
+            <label className="grid gap-2">
+              <span className="text-sm font-medium text-slate-300">Imię</span>
+              <input
+                required
+                type="text"
+                name="imie"
+                className="rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-gold focus:ring-1 focus:ring-gold/30"
+              />
+            </label>
+            <label className="grid gap-2">
+              <span className="text-sm font-medium text-slate-300">Email</span>
+              <input
+                required
+                type="email"
+                name="email"
+                className="rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-gold focus:ring-1 focus:ring-gold/30"
+              />
+            </label>
+            <label className="grid gap-2">
+              <span className="text-sm font-medium text-slate-300">Wiadomość</span>
+              <textarea
+                required
+                name="wiadomosc"
+                rows="5"
+                className="rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-gold focus:ring-1 focus:ring-gold/30"
+              />
+            </label>
+            <div className="flex flex-col gap-3">
+              <button
+                type="submit"
+                disabled={status === 'submitting'}
+                className="inline-flex w-fit items-center justify-center rounded-lg bg-gold px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-gold/25 transition hover:brightness-110 disabled:opacity-60"
+              >
+                {status === 'submitting' ? 'Wysyłanie…' : 'Wyślij wiadomość'}
+              </button>
+              {status === 'error' && (
+                <p className="text-sm text-red-400">
+                  Coś poszło nie tak. Spróbuj ponownie lub napisz bezpośrednio na{' '}
+                  <a href="mailto:kontakt@tekststudio.pl" className="underline underline-offset-4">
+                    kontakt@tekststudio.pl
+                  </a>
+                  .
+                </p>
+              )}
+            </div>
+          </form>
+        )}
       </div>
     </section>
   )
