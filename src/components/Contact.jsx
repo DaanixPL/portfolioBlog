@@ -1,12 +1,15 @@
 function Contact() {
   return (
     <section id="kontakt" className="scroll-mt-24 bg-navy">
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-        <h2 className="text-3xl font-semibold tracking-tight text-white">
+      <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-gold">
           Kontakt
+        </p>
+        <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          Porozmawiajmy o projekcie
         </h2>
-        <p className="mt-4 max-w-2xl text-slate-300">
-          Chętnie porozmawiam o Twoim projekcie. Napisz bezpośrednio na{' '}
+        <p className="mt-4 max-w-xl text-base leading-relaxed text-slate-400">
+          Napisz bezpośrednio na{' '}
           <a
             href="mailto:kontakt@tekststudio.pl"
             className="font-semibold text-gold underline-offset-4 hover:underline"
@@ -27,7 +30,7 @@ function Contact() {
               required
               type="text"
               name="imie"
-              className="rounded-md border border-white/20 bg-white/5 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-gold"
+              className="rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-gold focus:ring-1 focus:ring-gold/30"
             />
           </label>
           <label className="grid gap-2">
@@ -36,7 +39,7 @@ function Contact() {
               required
               type="email"
               name="email"
-              className="rounded-md border border-white/20 bg-white/5 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-gold"
+              className="rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-gold focus:ring-1 focus:ring-gold/30"
             />
           </label>
           <label className="grid gap-2">
@@ -45,12 +48,12 @@ function Contact() {
               required
               name="wiadomosc"
               rows="5"
-              className="rounded-md border border-white/20 bg-white/5 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-gold"
+              className="rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-gold focus:ring-1 focus:ring-gold/30"
             />
           </label>
           <button
             type="submit"
-            className="inline-flex w-fit items-center justify-center rounded-md bg-gold px-6 py-3 text-sm font-semibold text-navy transition hover:brightness-110"
+            className="inline-flex w-fit items-center justify-center rounded-lg bg-gold px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-gold/25 transition hover:brightness-110"
           >
             Wyślij wiadomość
           </button>
@@ -61,3 +64,4 @@ function Contact() {
 }
 
 export default Contact
+
