@@ -16,9 +16,6 @@ function Services() {  return (
         <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
           Co oferuję
         </h2>
-        <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-500">
-         Zajmuję się całym procesem tworzenia treści blogowych, od pomysłu i researchu po gotowy artykuł, który jest przygotowany pod SEO i realnie wspiera widoczność Twojej firmy w Google.
-        </p>
         <div className="mt-14 grid gap-6 lg:grid-cols-2">
           <div className="rounded-2xl border border-slate-200 bg-slate-50/70 p-8 transition hover:border-gold/30 hover:shadow-lg hover:shadow-gold/5">
             <div className="mb-5 inline-flex rounded-xl bg-navy p-3 text-gold shadow-sm shadow-gold/20">
