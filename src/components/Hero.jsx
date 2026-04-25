@@ -62,9 +62,8 @@ function Hero() {
             <span className="block text-gold">czytelników w klientów</span>
           </h1>
           <p className="mt-7 max-w-xl text-lg leading-relaxed text-slate-300/90">
-            Piszę eksperckie artykuły blogowe, które windują Twoją stronę
-            w Google i przekuwają ruch organiczny w realne zapytania od
-            klientów. Konkretnie, bez lania wody.
+            Tworzę artykuły blogowe, opisy produktów i treści SEO,
+            które pomagają stronom zdobywać widoczność w Google i realne zapytania od klientów.
           </p>
 
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
