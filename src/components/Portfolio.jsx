@@ -128,7 +128,7 @@ function Portfolio() {
           Portfolio
         </h2>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-500">
-          Przykładowe artykuły zrealizowane dla klientów. Kliknij kartę,
+          Przykładowe artykuły. Kliknij kartę,
           aby przeczytać pełny tekst.
         </p>
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
