@@ -1,10 +1,10 @@
 import { CheckCircle, PencilLine } from 'lucide-react'
 
 const benefits = [
-  'Lepsza widoczność Twojej strony w Google.',
-  'Większe zaufanie do marki dzięki eksperckim treściom.',
-  'Więcej wartościowego ruchu i potencjalnych klientów.',
-  'Spójny, profesjonalny wizerunek komunikacji.',
+  'Więcej wejść z Google na Twoją stronę',
+  'Treści, które budują profesjonalny wizerunek marki',
+  'Stały dopływ potencjalnych klientów',
+  'Spójna komunikacja, która sprzedaje, a nie tylko informuje',
 ]
 
 function Services() {  return (
@@ -14,11 +14,10 @@ function Services() {  return (
           Oferta
         </p>
         <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-          Co oferujemy
+          Co oferuję
         </h2>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-500">
-          Jedna konkretna usługa, realizowana kompleksowo — od researchu i
-          planowania po gotowy, zoptymalizowany tekst.
+         Zajmuję się całym procesem tworzenia treści blogowych, od pomysłu i researchu po gotowy artykuł, który jest przygotowany pod SEO i realnie wspiera widoczność Twojej firmy w Google.
         </p>
         <div className="mt-14 grid gap-6 lg:grid-cols-2">
           <div className="rounded-2xl border border-slate-200 bg-slate-50/70 p-8 transition hover:border-gold/30 hover:shadow-lg hover:shadow-gold/5">
@@ -29,9 +28,7 @@ function Services() {  return (
               Pisanie artykułów blogowych
             </h3>
             <p className="mt-3 leading-relaxed text-slate-500">
-              Piszę merytoryczne i angażujące artykuły, które wspierają SEO oraz
-              budują zaufanie do Twojej marki. Dopasowuję styl do branży i celu,
-              aby każdy tekst pomagał Ci zdobywać nowych klientów.
+             Tworzę przemyślane artykuły blogowe dla firm, które realnie wspierają SEO i budują widoczność marki w Google. Każdy tekst opieram na researchu, analizie słów kluczowych i dopasowaniu do Twojej branży, aby przyciągał właściwych odbiorców i wspierał sprzedaż.
             </p>
           </div>
           <div className="rounded-2xl border border-slate-200 bg-white p-8 transition hover:border-gold/30 hover:shadow-lg hover:shadow-gold/5">
