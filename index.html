@@ -3,28 +3,80 @@
   <head>
     <meta charset="UTF-8" />
     <script>
+      // GitHub Pages SPA redirect handler
+      ;(function () {
+        var p = window.location.search.match(/[?&]p=([^&]*)/)
+        if (p) {
+          var path = p[1].replace(/~and~/g, '&')
+          var q = window.location.search.match(/[?&]q=([^&]*)/)
+          var query = q ? '?' + q[1].replace(/~and~/g, '&') : ''
+          var hash = window.location.hash
+          window.history.replaceState(null, null, '/' + path + query + hash)
+        }
+      })()
+    </script>
+    <script>
       if (location.protocol !== 'https:' && location.hostname !== 'localhost') {
         location.replace('https://tekststudio.pl' + location.pathname + location.search + location.hash)
       }
     </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TekstStudio</title>
+    <title>TekstStudio | Portfolio twórcy treści – artykuły SEO dla firm</title>
     <meta
       name="description"
-      content="TekstStudio to moje portfolio twórcy treści. Tworzę artykuły blogowe dla firm w Polsce, które wspierają SEO i przyciągają klientów."
+      content="TekstStudio – portfolio copywritera i twórcy treści SEO. Piszę artykuły blogowe dla firm w Polsce, które zdobywają widoczność w Google i przyciągają klientów."
     />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://tekststudio.pl/" />
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pl_PL" />
+    <meta property="og:site_name" content="TekstStudio" />
     <meta
       property="og:title"
-      content="TekstStudio | Portfolio twórcy treści"
+      content="TekstStudio | Portfolio twórcy treści – artykuły SEO dla firm"
     />
     <meta
       property="og:description"
       content="Piszę artykuły blogowe dla firm w Polsce. Zobacz moje przykładowe realizacje i skontaktuj się ze mną."
     />
-    <meta property="og:site_name" content="TekstStudio" />
+    <meta property="og:url" content="https://tekststudio.pl/" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="TekstStudio | Portfolio twórcy treści" />
+    <meta
+      name="twitter:description"
+      content="Tworzę artykuły SEO dla firm w Polsce. Sprawdź portfolio i napisz do mnie."
+    />
+
+    <!-- JSON-LD: Person + WebSite -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://tekststudio.pl/#website",
+            "url": "https://tekststudio.pl/",
+            "name": "TekstStudio",
+            "description": "Portfolio copywritera i twórcy treści SEO",
+            "inLanguage": "pl-PL"
+          },
+          {
+            "@type": "Person",
+            "@id": "https://tekststudio.pl/#person",
+            "name": "TekstStudio",
+            "url": "https://tekststudio.pl/",
+            "jobTitle": "Copywriter & twórca treści SEO",
+            "email": "kontakt@tekststudio.pl",
+            "sameAs": []
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
