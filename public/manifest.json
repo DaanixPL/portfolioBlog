@@ -1,0 +1,22 @@
+{
+  "name": "TekstStudio",
+  "short_name": "TekstStudio",
+  "description": "Portfolio copywritera i twórcy treści SEO",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0c1221",
+  "theme_color": "#0c1221",
+  "lang": "pl",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
