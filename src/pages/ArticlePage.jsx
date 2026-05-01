@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { Link, useParams } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
 import { getArticleBySlug } from '../data/articles'
@@ -9,85 +9,6 @@ const SITE_URL = 'https://tekststudio.pl'
 function ArticlePage() {
   const { slug } = useParams()
   const article = getArticleBySlug(slug)
-
-  useEffect(() => {
-    if (!article) return
-
-    const pageTitle = `${article.title} | TekstStudio`
-
-    document.title = pageTitle
-
-    const setMeta = (selector, content) => {
-      let el = document.querySelector(selector)
-      if (!el) {
-        el = document.createElement('meta')
-        const [, attr, val] = selector.match(/\[(\w+)="([^"]+)"\]/)
-        el.setAttribute(attr, val)
-        document.head.appendChild(el)
-      }
-      el.setAttribute('content', content)
-    }
-
-    setMeta('meta[name="description"]', article.metaDescription)
-    setMeta('meta[property="og:title"]', pageTitle)
-    setMeta('meta[property="og:description"]', article.metaDescription)
-    setMeta('meta[property="og:type"]', 'article')
-    setMeta('meta[property="og:url"]', `${SITE_URL}/blog/${article.slug}`)
-
-    let canonical = document.querySelector('link[rel="canonical"]')
-    if (!canonical) {
-      canonical = document.createElement('link')
-      canonical.setAttribute('rel', 'canonical')
-      document.head.appendChild(canonical)
-    }
-    canonical.setAttribute('href', `${SITE_URL}/blog/${article.slug}`)
-
-    // JSON-LD structured data
-    const existingScript = document.getElementById('article-jsonld')
-    if (existingScript) existingScript.remove()
-    const script = document.createElement('script')
-    script.id = 'article-jsonld'
-    script.type = 'application/ld+json'
-    script.textContent = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'Article',
-      headline: article.title,
-      description: article.metaDescription,
-      datePublished: article.datePublished,
-      author: {
-        '@type': 'Person',
-        name: 'TekstStudio',
-        url: SITE_URL,
-      },
-      publisher: {
-        '@type': 'Organization',
-        name: 'TekstStudio',
-        url: SITE_URL,
-      },
-      mainEntityOfPage: {
-        '@type': 'WebPage',
-        '@id': `${SITE_URL}/blog/${article.slug}`,
-      },
-    })
-    document.head.appendChild(script)
-
-    return () => {
-      document.title = 'TekstStudio | Portfolio twórcy treści'
-      document.querySelector('link[rel="canonical"]')?.setAttribute('href', SITE_URL)
-      document.getElementById('article-jsonld')?.remove()
-      setMeta(
-        'meta[name="description"]',
-        'TekstStudio to moje portfolio twórcy treści. Tworzę artykuły blogowe dla firm w Polsce, które wspierają SEO i przyciągają klientów.',
-      )
-      setMeta('meta[property="og:title"]', 'TekstStudio | Portfolio twórcy treści')
-      setMeta(
-        'meta[property="og:description"]',
-        'Piszę artykuły blogowe dla firm w Polsce. Zobacz moje przykładowe realizacje i skontaktuj się ze mną.',
-      )
-      setMeta('meta[property="og:type"]', 'website')
-      setMeta('meta[property="og:url"]', SITE_URL)
-    }
-  }, [article])
 
   if (!article) {
     return (
@@ -105,8 +26,49 @@ function ArticlePage() {
     )
   }
 
+  const pageTitle = `${article.title} | TekstStudio`
+  const pageUrl = `${SITE_URL}/blog/${article.slug}`
+
   return (
     <div className="min-h-screen bg-[#f8f8fc]">
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={article.metaDescription} />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href={pageUrl} />
+        <meta property="og:type" content="article" />
+        <meta property="og:locale" content="pl_PL" />
+        <meta property="og:site_name" content="TekstStudio" />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={article.metaDescription} />
+        <meta property="og:url" content={pageUrl} />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={article.metaDescription} />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Article',
+            headline: article.title,
+            description: article.metaDescription,
+            datePublished: article.datePublished,
+            author: {
+              '@type': 'Person',
+              name: 'TekstStudio',
+              url: SITE_URL,
+            },
+            publisher: {
+              '@type': 'Organization',
+              name: 'TekstStudio',
+              url: SITE_URL,
+            },
+            mainEntityOfPage: {
+              '@type': 'WebPage',
+              '@id': pageUrl,
+            },
+          })}
+        </script>
+      </Helmet>
       {/* Top bar */}
       <header className="sticky top-0 z-50 border-b border-white/8 bg-navy shadow-xl shadow-black/40">
         <nav className="mx-auto flex w-full max-w-4xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
